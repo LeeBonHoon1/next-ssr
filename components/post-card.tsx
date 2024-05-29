@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion";
 
 interface PostCardProps {
-  id: string;
+  id: number;
   title: string;
   description: string;
 }
