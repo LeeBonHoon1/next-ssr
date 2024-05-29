@@ -19,7 +19,10 @@ const MobileNavbar = ({ isLogin }: { isLogin: boolean }) => {
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <header className="flex justify-between items-center">
-            <Link href={"/"} className="font-bold text-lg">
+            <Link
+              href={"/"}
+              className="font-bold text-lg hover:scale-105 transition"
+            >
               Hanteo Tech Blog
             </Link>
             <div className="flex items-center gap-3">
@@ -32,11 +35,19 @@ const MobileNavbar = ({ isLogin }: { isLogin: boolean }) => {
             </div>
           </header>
           <AccordionContent>
-            <div className="flex flex-col gap-3 text-md font-bold py-2">
-              <Link href={"https://hanteochart.com"} target="_black">
+            <div className="flex gap-5 text-[16px] font-bold py-2 px-4">
+              <Link
+                href={"https://hanteochart.com"}
+                target="_black"
+                className="hover:scale-110 transition"
+              >
                 회사소개
               </Link>
-              <Link href={"https://hanteochart.com"} target="_black">
+              <Link
+                href={"https://hanteochart.com"}
+                target="_black"
+                className="hover:scale-110 transition"
+              >
                 인재영입
               </Link>
             </div>

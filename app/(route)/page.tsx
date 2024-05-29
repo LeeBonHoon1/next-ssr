@@ -10,28 +10,28 @@ import MainContentPage from "@/components/main-content";
 import Footer from "@/components/footer";
 
 const RootPage = async () => {
-  // const queryClient = new QueryClient();
+  const queryClient = new QueryClient();
 
-  // await Promise.all([
-  //   queryClient.prefetchQuery({
-  //     queryKey: ["members"],
-  //     queryFn: getMembers,
-  //   }),
-  //   queryClient.prefetchQuery({
-  //     queryKey: ["posts"],
-  //     queryFn: getPosts,
-  //   }),
-  // ]);
+  await Promise.all([
+    queryClient.prefetchQuery({
+      queryKey: ["members"],
+      queryFn: getMembers,
+    }),
+    queryClient.prefetchQuery({
+      queryKey: ["posts"],
+      queryFn: getPosts,
+    }),
+  ]);
 
-  // const dehydratedState = dehydrate(queryClient);
+  const dehydratedState = dehydrate(queryClient);
 
   return (
     <div className="pt-12 sm:pt-16">
       <Banner />
-      {/* <HydrationBoundary state={dehydratedState}> */}
-      <MainContentPage />
-      <Footer />
-      {/* </HydrationBoundary> */}
+      <HydrationBoundary state={dehydratedState}>
+        <MainContentPage />
+        <Footer />
+      </HydrationBoundary>
     </div>
   );
 };

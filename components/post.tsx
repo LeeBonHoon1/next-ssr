@@ -1,18 +1,16 @@
 import { Suspense } from "react";
 import { motion } from "framer-motion";
-// import { useQuery } from "@tanstack/react-query";
-// import { getPosts } from "@/server/actions";
+import { useQuery } from "@tanstack/react-query";
+import { getPosts } from "@/server/actions";
 import { Posts } from "@/types";
 import PostCardItems from "./post-items";
-import { HANTEO_NEWS } from "@/constants/member-info";
 
 const Post = () => {
-  // const { data: posts } = useQuery({
-  //   queryKey: ["posts"],
-  //   queryFn: getPosts,
-  //   select: (data) => data.slice(0, 9),
-  // });
-  const posts = HANTEO_NEWS;
+  const { data: posts } = useQuery({
+    queryKey: ["posts"],
+    queryFn: getPosts,
+    select: (data) => data.slice(0, 9),
+  });
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <section aria-labelledby="posts-heading">

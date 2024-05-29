@@ -15,7 +15,7 @@ const MemberDetailPage = async ({
   };
 }) => {
   const { memberId } = params ?? {};
-  // const member = await getMemberDetail(memberId ?? "1");
+  const member = await getMemberDetail(memberId ?? "1");
 
   return (
     <div className="pt-40 px-12 md:px-24 flex flex-col items-center md:flex-row md:justify-evenly">
@@ -29,11 +29,11 @@ const MemberDetailPage = async ({
         />
       </div>
       <div>
-        {/* {Object.entries(member).map(([key, value]) => (
+        {Object.entries(member).map(([key, value]) => (
           <div key={key}>
             {key}: {Array.isArray(value) ? value.join(", ") : value}
           </div>
-        ))} */}
+        ))}
       </div>
     </div>
   );
