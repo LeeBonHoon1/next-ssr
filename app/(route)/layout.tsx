@@ -1,4 +1,4 @@
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/nav/navbar";
 import { PropsWithChildren } from "react";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";

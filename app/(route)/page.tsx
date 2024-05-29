@@ -1,10 +1,13 @@
 import { getMembers, getPosts } from "@/server/actions";
-import Members from "@/components/members";
 import {
   dehydrate,
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
+
+import Banner from "@/components/banner";
+import MainContentPage from "@/components/main-content";
+import Footer from "@/components/footer";
 
 const RootPage = async () => {
   const queryClient = new QueryClient();
@@ -23,9 +26,11 @@ const RootPage = async () => {
   const dehydratedState = dehydrate(queryClient);
 
   return (
-    <div>
+    <div className="pt-12 sm:pt-16">
+      <Banner />
       <HydrationBoundary state={dehydratedState}>
-        <Members />
+        <MainContentPage />
+        <Footer />
       </HydrationBoundary>
     </div>
   );

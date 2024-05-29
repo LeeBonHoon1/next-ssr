@@ -9,13 +9,11 @@ interface PostCardItemsProps {
 
 const PostCardItems = ({ posts }: PostCardItemsProps) => {
   return (
-    <div className="py-3 px-20">
-      <PostCard
-        id={posts.id}
-        title={posts.title}
-        description={posts.description}
-      />
-    </div>
+    <PostCard
+      id={posts.id}
+      title={posts.title}
+      description={posts.description}
+    />
   );
 };
 
