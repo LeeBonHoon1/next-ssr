@@ -5,7 +5,7 @@ import { HANTEO_MAMBER } from "@/types";
 const getMembers = async (memberId: string) => {
   try {
     const response = await axios.get<HANTEO_MAMBER>(
-      `http://localhost:8080/members/${memberId}`
+      `http://192.168.2.94:8080/members/${memberId}`
     );
     return response.data;
   } catch (error) {

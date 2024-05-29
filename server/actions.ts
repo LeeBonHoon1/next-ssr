@@ -6,7 +6,7 @@ import axios from "axios";
 export const getMembers = async (): Promise<HANTEO_MAMBER[]> => {
   try {
     const response = await axios.get<HANTEO_MAMBER[]>(
-      "http://localhost:8080/members"
+      "http://192.168.2.94:8080/members"
     );
     return response.data;
   } catch (error) {
@@ -17,7 +17,7 @@ export const getMembers = async (): Promise<HANTEO_MAMBER[]> => {
 
 export const getPosts = async (): Promise<Posts[]> => {
   try {
-    const posts = await axios.get<Posts[]>("http://localhost:8080/news");
+    const posts = await axios.get<Posts[]>("http://192.168.2.94:8080/news");
     return posts.data;
   } catch (error) {
     console.error("Error fetching members:", error);
