@@ -1,17 +1,19 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { motion } from "framer-motion";
+import { HANTEO_MEMBERS } from "@/constants/member-info";
 
 import { HANTEO_MAMBER } from "@/types";
-import { useQuery } from "@tanstack/react-query";
-import { getMembers } from "@/server/actions";
+// import { useQuery } from "@tanstack/react-query";
+// import { getMembers } from "@/server/actions";
 import Image from "next/image";
 
 const Member = () => {
-  const { data: members } = useQuery({
-    queryKey: ["members"],
-    queryFn: getMembers,
-  });
+  // const { data: members } = useQuery({
+  //   queryKey: ["members"],
+  //   queryFn: getMembers,
+  // });
+  const members = HANTEO_MEMBERS;
   return (
     <Suspense>
       <section aria-labelledby="members-heading">
