@@ -20,3 +20,23 @@ export interface HANTEO_MAMBER {
   phone: string;
   likeFood: string[];
 }
+
+export interface TABS {
+  id: number;
+  name: string;
+  active: boolean;
+  href: string;
+}
+
+export interface Tech {
+  _id: string;
+  title: string;
+  subtitle: string;
+  authorId: string;
+  date: string | null;
+  slug: string;
+  category: string;
+  tag: string[];
+  status: string;
+  thumbnailUrl: string | null;
+}

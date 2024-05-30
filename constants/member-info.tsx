@@ -1,4 +1,4 @@
-import { HANTEO_MAMBER, Posts } from "@/types";
+import { HANTEO_MAMBER, Posts, TABS } from "@/types";
 
 export const HANTEO_MEMBERS: HANTEO_MAMBER[] = [
   {
@@ -343,5 +343,20 @@ export const HANTEO_NEWS: Posts[] = [
     title: "테일러 스위프트, 'Fearless (Taylor's Version)' 앨범 발매",
     description:
       "포플 아티스트 테일러 스위프트(Taylor Swift)가 'Fearless (Taylor's Version)'이라는 앨범을 재발매했습니다. 그녀의 과거 히트곡들을 새롭게 재해석한 이번 앨범은 많은 이들의 사랑을 받고 있습니다.",
+  },
+];
+
+export const tabs: TABS[] = [
+  {
+    id: 1,
+    name: "Hanteo board",
+    active: false,
+    href: "/",
+  },
+  {
+    id: 2,
+    name: "Tech research",
+    active: false,
+    href: "/tech",
   },
 ];

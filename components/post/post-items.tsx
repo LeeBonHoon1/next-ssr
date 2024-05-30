@@ -1,7 +1,7 @@
 "use client";
 
 import { Posts } from "@/types";
-import PostCard from "@/components/post-card";
+import PostCard from "@/components/post/post-card";
 
 interface PostCardItemsProps {
   posts: Posts;

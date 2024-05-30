@@ -1,9 +1,11 @@
 import { Suspense } from "react";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
+
 import { getPosts } from "@/server/actions";
 import { Posts } from "@/types";
-import PostCardItems from "./post-items";
+
+import PostCardItems from "@/components/post/post-items";
 
 const Post = () => {
   const { data: posts } = useQuery({
