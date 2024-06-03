@@ -12,7 +12,9 @@ const Banner = () => {
         className="opacity-60"
       />
       <div className="absolute inset-0 flex items-center justify-center">
-        <h2 className="text-white text-3xl font-bold">Hanteo global</h2>
+        <h2 className="text-white text-3xl font-bold antialiased">
+          Hanteo global
+        </h2>
       </div>
     </div>
   );

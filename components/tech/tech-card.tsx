@@ -1,5 +1,6 @@
 import { convertCategory } from "@/lib/utils";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 interface TechCardProps {
   title: string;
@@ -15,8 +16,10 @@ const TechCard = ({ title, subtitle, date, tag, category }: TechCardProps) => {
     <div className="border-b-2 py-10 space-y-3 flex justify-between items-center">
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-3">
-          <div className="text-rose-300 font-bold text-lg">{_category}</div>
-          <div className="relative w-[24px] h-[24px] md:hidden">
+          <div className="text-rose-300 font-bold text-lg antialiased">
+            {_category}
+          </div>
+          <div className="relative w-[24px] h-[24px] lg:hidden">
             <Image
               src={"/images/1.png"}
               fill
@@ -26,24 +29,37 @@ const TechCard = ({ title, subtitle, date, tag, category }: TechCardProps) => {
             />
           </div>
         </div>
-        <div className="text-2xl font-bold">{title}</div>
-        <div className="text-md text-slate-600 dark:text-slate-400">
+        <div className="text-2xl font-bold antialiased">{title}</div>
+        <div className="text-md text-slate-600 dark:text-slate-400 antialiased">
           {subtitle}
         </div>
-        <div className="text-sm">{date}</div>
-
-        <div className="flex gap-3 text-sm">
-          {tag.map((item, idx) => (
-            <div
-              key={idx}
-              className="rounded-full px-3 py-0.5 bg-slate-300 text-white line-clamp-1 dark:bg-rose-300"
-            >
-              {item}
-            </div>
-          ))}
+        <div className="text-sm antialiased font-bold text-slate-600">
+          {date}
         </div>
+
+        {tag.length > 0 && (
+          <div className="flex gap-3 text-sm items-center">
+            {tag.slice(0, 2).map((item, idx) => {
+              return (
+                <div
+                  key={idx}
+                  className="rounded-full px-3 py-0.5 text-[9px] md:text-[12px] font-bold bg-slate-300 text-slate-700 line-clamp-1 truncate dark:bg-rose-300 dark:text-white antialiased"
+                >
+                  <div>{item}</div>
+                </div>
+              );
+            })}
+            <div>
+              {tag.length >= 2 && tag.length - 2 !== 0 && (
+                <Badge className="bg-rose-300 dark:text-white">
+                  +{tag.length - 2}
+                </Badge>
+              )}
+            </div>
+          </div>
+        )}
       </div>
-      <div className="relative w-[60px] h-[60px] hidden lg:block">
+      <div className="relative w-[100px] h-[100px] hidden lg:block">
         <Image
           src={"/images/1.png"}
           fill

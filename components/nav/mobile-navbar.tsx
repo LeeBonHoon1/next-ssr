@@ -15,7 +15,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 
 const MobileNavbar = ({ isLogin }: { isLogin: boolean }) => {
   return (
-    <div className="md:hidden w-full">
+    <div className="sm:hidden w-full">
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <header className="flex justify-between items-center">

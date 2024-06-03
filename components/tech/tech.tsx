@@ -21,7 +21,7 @@ const Techs = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-1 gap-3 px-5 py-20"
+          className="grid grid-cols-1 gap-3 px-5"
         >
           {techs?.map((tech: Tech) => (
             <TechCard
