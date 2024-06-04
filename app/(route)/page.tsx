@@ -1,4 +1,4 @@
-import { getMembers, getPosts, getTech } from "@/server/actions";
+import { getContent, getMembers, getPosts, getTech } from "@/server/actions";
 import {
   dehydrate,
   HydrationBoundary,
@@ -15,23 +15,15 @@ const RootPage = async () => {
 
   await Promise.all([
     queryClient.prefetchQuery({
-      queryKey: ["members"],
-      queryFn: getMembers,
-    }),
-    queryClient.prefetchQuery({
-      queryKey: ["posts"],
-      queryFn: getPosts,
-    }),
-    queryClient.prefetchQuery({
-      queryKey: ["tech"],
-      queryFn: getTech,
+      queryKey: ["content"],
+      queryFn: getContent,
     }),
   ]);
 
   const dehydratedState = dehydrate(queryClient);
 
   return (
-    <div className="pt-12 sm:pt-16">
+    <div className="min-w-sm pt-12 sm:pt-16">
       <Banner />
       <HydrationBoundary state={dehydratedState}>
         <Tab />

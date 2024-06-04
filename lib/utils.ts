@@ -1,3 +1,13 @@
+import React from "react";
+import parse, {
+  domToReact,
+  attributesToProps,
+  Element,
+  HTMLReactParserOptions,
+  DOMNode,
+} from "html-react-parser";
+import { decode } from "html-entities";
+
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -19,4 +29,47 @@ export const convertCategory = (category: string): string => {
   };
 
   return categoryMap[category] || category;
+};
+
+export const parseHtmlContent = (htmlContent: string) => {
+  // Decode HTML entities
+  const decodedHtmlContent = decode(htmlContent);
+
+  const options: HTMLReactParserOptions = {
+    replace(domNode) {
+      if (domNode instanceof Element) {
+        if (domNode.name === "img") {
+          // Handle img tags specifically
+          const props = attributesToProps(domNode.attribs);
+          return React.createElement("img", props);
+        }
+        if (domNode.attribs && domNode.attribs.style) {
+          const style = domNode.attribs.style;
+          const updatedStyle = style
+            .split(";")
+            .filter((rule) => {
+              const [property, value] = rule
+                .split(":")
+                .map((str) => str.trim());
+              return !(property === "color" && value === "#000000");
+            })
+            .join(";");
+          if (updatedStyle) {
+            domNode.attribs.style = updatedStyle;
+          } else {
+            delete domNode.attribs.style;
+          }
+
+          const props = attributesToProps(domNode.attribs);
+          return React.createElement(
+            domNode.name,
+            props,
+            domToReact(domNode.children as DOMNode[], options)
+          );
+        }
+      }
+    },
+  };
+
+  return parse(decodedHtmlContent, options);
 };

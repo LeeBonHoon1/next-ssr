@@ -1,43 +1,29 @@
 "use client";
 
-import { Posts } from "@/types";
-import { Variants, motion } from "framer-motion";
+import { Content } from "@/types";
 
 import PostCard from "@/components/post/post-card";
+import ContentSkeleton from "../skeletons/content-skeleton";
 
 interface PostCardItemsProps {
-  posts: Posts;
+  content: Content;
+  isLoading: boolean;
 }
 
-const PostCardItems = ({ posts }: PostCardItemsProps) => {
-  const cardVariants: Variants = {
-    offscreen: {
-      y: 300,
-    },
-    onscreen: {
-      y: 0,
-      transition: {
-        type: "spring",
-        bounce: 0.1,
-        duration: 0.8,
-      },
-    },
-  };
-
+const PostCardItems = ({ isLoading, content }: PostCardItemsProps) => {
   return (
-    <motion.div
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
-    >
-      <motion.div variants={cardVariants}>
+    <div>
+      {isLoading ? (
+        <ContentSkeleton />
+      ) : (
         <PostCard
-          id={posts.id}
-          title={posts.title}
-          description={posts.description}
+          id={content.postIdx}
+          title={content.postTitle}
+          description={content.contents}
+          content={content}
         />
-      </motion.div>
-    </motion.div>
+      )}
+    </div>
   );
 };
 

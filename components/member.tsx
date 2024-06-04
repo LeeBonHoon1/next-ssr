@@ -3,16 +3,10 @@ import { Suspense } from "react";
 import { motion } from "framer-motion";
 
 import { HANTEO_MAMBER } from "@/types";
-import { useQuery } from "@tanstack/react-query";
-import { getMembers } from "@/server/actions";
+
 import Image from "next/image";
+import { HANTEO_MEMBERS } from "@/constants/member-info";
 const Member = () => {
-  const { data: members } = useQuery({
-    queryKey: ["members"],
-    queryFn: getMembers,
-    staleTime: Infinity,
-    gcTime: Infinity,
-  });
   return (
     <Suspense>
       <section aria-labelledby="members-heading">
@@ -26,13 +20,10 @@ const Member = () => {
             Hanteo Developers
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 content-center">
-            {members?.map((member: HANTEO_MAMBER) => (
+            {HANTEO_MEMBERS?.map((member: HANTEO_MAMBER) => (
               <Link
                 href={{
                   href: `/member/${member.id}`,
-                  query: {
-                    members: JSON.stringify(members),
-                  },
                 }}
                 as={`/member/${member.id}`}
                 key={member.id}

@@ -31,7 +31,7 @@ export interface TABS {
 export interface Tech {
   _id: string;
   title: string;
-  subtitle: string;
+  subtitle: string | null;
   authorId: string;
   date: string | null;
   slug: string;
@@ -39,4 +39,49 @@ export interface Tech {
   tag: string[];
   status: string;
   thumbnailUrl: string | null;
+  id: string;
+}
+
+interface BoardCategory {
+  idx: number;
+  name: string;
+  priority: number;
+  serviceYn: boolean;
+}
+
+export interface Content {
+  boardIdx: number;
+  boardName: string | null;
+  postIdx: number;
+  writer: number;
+  password: string;
+  postTitle: string;
+  createYmdt: string;
+  updateYmdt: string | null;
+  serviceYn: boolean;
+  replyYn: number;
+  postType: string;
+  seriesIdx: number;
+  seriesOrder: number;
+  contents: string;
+  thumbnail: string;
+}
+
+export interface ContentResultData {
+  boardIdx: number;
+  boardPriority: number;
+  manager: number;
+  serviceYn: boolean;
+  boardName: string;
+  boardType: string;
+  createYmdt: string;
+  updateYmdt: string;
+  category: BoardCategory;
+  postList: Content[];
+}
+
+export interface ContentResponse {
+  code: number;
+  message: string | null;
+  resultData: ContentResultData;
 }

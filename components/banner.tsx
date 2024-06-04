@@ -8,7 +8,7 @@ const Banner = () => {
         src={"/images/team.jpeg"}
         fill
         alt="banner"
-        objectFit="cover"
+        style={{ objectFit: "cover" }}
         className="opacity-60"
       />
       <div className="absolute inset-0 flex items-center justify-center">

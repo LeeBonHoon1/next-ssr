@@ -13,47 +13,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-import { description as test } from "@/constants/member-info";
+import { parseHtmlContent } from "@/lib/utils";
 
 interface PostCardProps {
   id: number;
   title: string;
   description?: string;
+  content: any;
 }
 
-const PostCard = ({ id, title }: PostCardProps) => {
-  const options: HTMLReactParserOptions = {
-    replace(domNode) {
-      if (
-        domNode instanceof Element &&
-        domNode.attribs &&
-        domNode.attribs.style
-      ) {
-        const style = domNode.attribs.style;
-        const updatedStyle = style
-          .split(";")
-          .filter((rule) => {
-            const [property, value] = rule.split(":").map((str) => str.trim());
-            return !(property === "color" && value === "#000000");
-          })
-          .join(";");
-        if (updatedStyle) {
-          domNode.attribs.style = updatedStyle;
-        } else {
-          delete domNode.attribs.style;
-        }
-
-        const props = attributesToProps(domNode.attribs);
-        return React.createElement(
-          domNode.name,
-          props,
-          domToReact(domNode.children as DOMNode[], options)
-        );
-      }
-    },
-  };
-  const parseHtml = parse(test, options);
+const PostCard = ({ id, content }: PostCardProps) => {
+  const parseHTML = parseHtmlContent(content.contents);
   return (
     <article
       className="p-3 border border-1 border-slate-300 dark:border-slate-500 rounded-2xl shadow-lg"
@@ -67,12 +37,12 @@ const PostCard = ({ id, title }: PostCardProps) => {
                 id={`post-title-${id}`}
                 className="line-clamp-1 text-lg antialiased"
               >
-                {title}
+                {content?.postTitle || ""}
               </h3>
             </header>
           </AccordionTrigger>
           <AccordionContent className="antialiased relative">
-            {parseHtml}
+            {parseHTML}
           </AccordionContent>
         </AccordionItem>
       </Accordion>
