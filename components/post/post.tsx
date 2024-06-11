@@ -27,7 +27,7 @@ const Post = () => {
           className="grid grid-cols-1 gap-8 px-5"
         >
           <div className="flex justify-between items-center">
-            <div className="text-lg font-bold antialiased">Hanteo News</div>
+            <div className="font-bold antialiased text-[18px]">Hanteo News</div>
           </div>
           {content?.map((content: Content) => (
             <PostCardItems

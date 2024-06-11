@@ -7,18 +7,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import { UserButton, SignOutButton } from "@clerk/nextjs";
 import { AlignJustify } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
 import { ModeToggle } from "@/components/mode-toggle";
 
-const MobileNavbar = ({ isLogin }: { isLogin: boolean }) => {
+const MobileNavbar = () => {
   return (
     <div className="sm:hidden w-full">
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion type="single" collapsible className="">
         <AccordionItem value="item-1">
-          <header className="flex justify-between items-center">
+          <header className="flex justify-between items-center my-auto">
             <Link
               href={"/"}
               className="font-bold text-lg hover:scale-105 transition"
@@ -26,7 +25,6 @@ const MobileNavbar = ({ isLogin }: { isLogin: boolean }) => {
               Hanteo Tech Blog
             </Link>
             <div className="flex items-center gap-3">
-              <div>{isLogin && <UserButton />}</div>
               <AccordionTrigger isNav={true}>
                 <h3 className="line-clamp-1">
                   <AlignJustify className="w-6 h-6" />
@@ -53,7 +51,6 @@ const MobileNavbar = ({ isLogin }: { isLogin: boolean }) => {
             </div>
             <Separator className="my-4" />
             <div className="flex items-center justify-end gap-3 z-[999999]">
-              <SignOutButton>로그아웃</SignOutButton>
               <ModeToggle />
             </div>
           </AccordionContent>

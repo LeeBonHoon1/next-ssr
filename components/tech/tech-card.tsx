@@ -16,7 +16,7 @@ const TechCard = ({ title, subtitle, date, tag, category }: TechCardProps) => {
     <div className="border-b-2 py-10 space-y-3 flex justify-between items-center">
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-3">
-          <div className="text-rose-300 font-bold text-lg antialiased">
+          <div className="text-rose-300 font-bold text-[16px] antialiased">
             {_category}
           </div>
           <div className="relative w-[24px] h-[24px] lg:hidden">
@@ -30,10 +30,10 @@ const TechCard = ({ title, subtitle, date, tag, category }: TechCardProps) => {
           </div>
         </div>
         <div className="text-2xl font-bold antialiased">{title}</div>
-        <div className="text-md text-slate-600 dark:text-slate-400 antialiased">
+        <div className="text-[16px] text-slate-600 dark:text-slate-300 antialiased">
           {subtitle}
         </div>
-        <div className="text-sm antialiased font-bold text-slate-600">
+        <div className="text-[14px] antialiased font-bold text-slate-400">
           {date}
         </div>
 
@@ -43,7 +43,7 @@ const TechCard = ({ title, subtitle, date, tag, category }: TechCardProps) => {
               return (
                 <div
                   key={idx}
-                  className="rounded-full px-3 py-0.5 text-[9px] md:text-[12px] font-bold bg-slate-300 text-slate-700 line-clamp-1 truncate dark:bg-rose-300 dark:text-white antialiased"
+                  className="rounded-full px-3 py-0.5 text-[12px] md:text-[14px] font-bold bg-slate-300 text-slate-700 line-clamp-1 truncate dark:bg-rose-300 dark:text-white antialiased"
                 >
                   <div>{item}</div>
                 </div>
@@ -59,7 +59,7 @@ const TechCard = ({ title, subtitle, date, tag, category }: TechCardProps) => {
           </div>
         )}
       </div>
-      <div className="relative w-[100px] h-[100px] hidden lg:block">
+      <div className="relative w-[80px] h-[80px] hidden lg:block">
         <Image
           src={"/images/1.png"}
           fill

@@ -1,16 +1,9 @@
-import { Metadata } from "next";
 import Image from "next/image";
-// import getMemberDetail from "@/app/(route)/member/[memberId]/actions";
 
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import MemberInfoHoverCard from "@/components/hover-card";
 import { HANTEO_MEMBERS } from "@/constants/member-info";
-
-export const metadata: Metadata = {
-  title: `Hanteo's member`,
-  description: "한터 | 소개",
-};
 
 const MemberDetailPage = async ({
   params,

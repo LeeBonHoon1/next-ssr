@@ -19,7 +19,7 @@ const TabButton = ({ active, selectTab, children }: TabButtonProps) => {
     <button onClick={selectTab} className="mr-3">
       <p
         className={cn(
-          "font-semibold text-slate-500 hover:font-bold dark:text-slate-300",
+          "font-semibold text-slate-500 hover:font-bold dark:text-slate-300 text-[14px] lg:text-[18px]",
           active && "text-black dark:text-white"
         )}
       >

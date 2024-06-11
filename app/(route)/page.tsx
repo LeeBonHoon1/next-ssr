@@ -23,7 +23,7 @@ const RootPage = async () => {
   const dehydratedState = dehydrate(queryClient);
 
   return (
-    <div className="min-w-sm pt-12 sm:pt-16">
+    <div className="w-full pt-12 sm:pt-16">
       <Banner />
       <HydrationBoundary state={dehydratedState}>
         <Tab />

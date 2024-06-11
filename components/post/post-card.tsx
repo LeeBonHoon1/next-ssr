@@ -35,13 +35,13 @@ const PostCard = ({ id, content }: PostCardProps) => {
             <header>
               <h3
                 id={`post-title-${id}`}
-                className="line-clamp-1 text-lg antialiased"
+                className="line-clamp-1 text-[16px] antialiased"
               >
                 {content?.postTitle || ""}
               </h3>
             </header>
           </AccordionTrigger>
-          <AccordionContent className="antialiased relative">
+          <AccordionContent className="antialiased">
             {parseHTML}
           </AccordionContent>
         </AccordionItem>

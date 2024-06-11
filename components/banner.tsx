@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="relative w-full h-[300px]">
+    <div className="relative w-full h-[180px] md:h-[320px]">
       <div className="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
       <Image
         src={"/images/team.jpeg"}

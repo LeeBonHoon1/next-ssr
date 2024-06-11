@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="py-6 bg-slate-800 w-full text-slate-400 text-sm px-6 space-y-1 rounded-t-2xl text-[12px]">
+    <div className="py-6 bg-slate-800 text-slate-400 text-sm px-6 space-y-1 rounded-t-2xl text-[12px]">
       <p>제호 : 한터뉴스(HANTEO NEWS) | 발행처 : (주)한터글로벌</p>
       <p>인터넷 신문 등록번호 : 서울 아 52122</p>
       <p>인터넷 신문 등록일 : 2019년 01월 29일 | 발행일자 : 2019년 04월 01일</p>

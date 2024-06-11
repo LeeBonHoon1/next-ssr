@@ -2,13 +2,16 @@ import { UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/mode-toggle";
 import Link from "next/link";
 
-const WebNavbar = ({ isLogin }: { isLogin: boolean }) => {
+const WebNavbar = () => {
   return (
     <div className="hidden md:flex gap-3 items-center w-full justify-between">
-      <Link href={"/"} className="font-bold text-lg hover:scale-105 transition">
+      <Link
+        href={"/"}
+        className="font-bold text-[16px] hover:scale-105 transition"
+      >
         Hanteo Tech Blog
       </Link>
-      <div className="flex gap-3 text-sm font-bold items-center">
+      <div className="flex gap-3 text-[16px] font-bold items-center">
         <Link
           href={"https://hanteochart.com"}
           target="_black"
@@ -24,7 +27,6 @@ const WebNavbar = ({ isLogin }: { isLogin: boolean }) => {
           인재영입
         </Link>
         <ModeToggle />
-        {isLogin && <UserButton afterSignOutUrl="/" />}
       </div>
     </div>
   );

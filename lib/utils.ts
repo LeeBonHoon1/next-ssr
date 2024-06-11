@@ -32,14 +32,12 @@ export const convertCategory = (category: string): string => {
 };
 
 export const parseHtmlContent = (htmlContent: string) => {
-  // Decode HTML entities
   const decodedHtmlContent = decode(htmlContent);
 
   const options: HTMLReactParserOptions = {
     replace(domNode) {
       if (domNode instanceof Element) {
         if (domNode.name === "img") {
-          // Handle img tags specifically
           const props = attributesToProps(domNode.attribs);
           return React.createElement("img", props);
         }
